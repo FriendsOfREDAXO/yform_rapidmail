@@ -1,0 +1,11 @@
+package: yform_rapidmail
+version: 0.1
+author: alex+ Digitales Marketing
+supportpage: https://github.com/alexplusde/yform_rapidmail/
+
+
+default_config:
+    api_user_hash: ''
+    api_password_hash: ''
+
+    

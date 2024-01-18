@@ -1,0 +1,66 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  - "pull_request"
+  - "push"
+  - "workflow_dispatch"
+
+name: "CI"
+
+jobs:
+  tests:
+    name: "Tests"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - 5.6
+          - 7.0
+          - 7.1
+          - 7.2
+          - 7.3
+          - 7.4
+          - 8.0
+          - 8.1
+          - 8.2
+
+        dependencies:
+          - lowest
+          - highest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Phplint"
+        uses: michaelw90/PHP-Lint@master
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: xdebug
+          php-version: "${{ matrix.php-version }}"
+          ini-values: memory_limit=-1
+          tools: composer:v1
+
+      - name: "Cache dependencies"
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+          restore-keys: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+
+      - name: "Install highest dependencies"
+        if: ${{ matrix.dependencies == 'highest' }}
+        run: "composer update --no-interaction --no-progress --no-suggest"
+
+      - name: "Install lowest dependencies"
+        if: ${{ matrix.dependencies == 'lowest' }}
+        run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Tests"
+        run: "vendor/bin/phpunit"
