@@ -1,5 +1,5 @@
 package: yform_rapidmail
-version: 0.1.0
+version: 0.1.1
 author: alex+ Digitales Marketing
 supportpage: https://github.com/alexplusde/yform_rapidmail/
 
@@ -8,4 +8,21 @@ default_config:
     api_user_hash: ''
     api_password_hash: ''
 
-    
+page:
+    hidden: true
+
+pages:
+    yform/rapidmail:
+        title: 'Rapidmail'
+        icon: rex-icon fa-info-circle
+        perm: yform_rapidmail[]
+        
+    yform/rapidmail/settings:
+        title: 'Einstellungen'
+        icon: rex-icon fa-info-circle
+        perm: yform_rapidmail[]
+
+    yform/rapidmail/docs:
+        title: 'Docs'
+        icon: rex-icon fa-info-circle
+        perm: yform_rapidmail[]
