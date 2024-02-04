@@ -1,5 +1,5 @@
 package: yform_rapidmail
-version: 0.1.2
+version: 0.1.3
 author: alex+ Digitales Marketing
 supportpage: https://github.com/alexplusde/yform_rapidmail/
 
@@ -14,15 +14,15 @@ page:
 pages:
     yform/rapidmail:
         title: 'Rapidmail'
-        icon: rex-icon fa-info-circle
+        icon: rex-icon  fa-paper-plane
         perm: yform_rapidmail[]
         
     yform/rapidmail/settings:
         title: 'Einstellungen'
-        icon: rex-icon fa-info-circle
+        icon: rex-icon fa-cogs
         perm: yform_rapidmail[]
 
     yform/rapidmail/docs:
         title: 'Docs'
-        icon: rex-icon fa-info-circle
+        icon: rex-icon fa-book
         perm: yform_rapidmail[]

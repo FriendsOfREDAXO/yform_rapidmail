@@ -2,19 +2,32 @@
 
 Work in Progress. Stellt den Rapidmail PHP-SDK zur Verfügung. Und synchronisiert Email-Adressen mit Empfängerlisten.
 
+## Einrichtung
+
+1. API-Zugang bei Rapidmail einrichten
+2. API-Zugang in den Einstellungen YForm > Rapidmail > Einstellungen hinterlegen.
+3. Gewünschte Empfängerliste(n) bei Rapidmail anlegen
+
+Wenn erfolgreich, dann werden in den Einstellungen die verfügbaren Empfängerlisten und deren IDs angezeigt.
+
 ## Beispiel-Action
 
-Voraussetzung: 
-* Empfänger-Liste mit bekannter ID
-* API-Zugang eingerichtet
-* API-Zugang in den Einstellungen YForm > Rapidmail > Einstellungen hinterlegt.
+Voraussetzung:
 
-```
+* Empfänger-Liste mit bekannter ID, diese als `###LIST_ID###` in der Action verwenden.
+
+Optional:
+
+* `newsletter_optin` als Checkbox, um Opt-In DSGVO-konform abzufragen.
+
+```plaintext
+objparams|csrf_protection|false
+checkbox|newsletter_optin|Möchten Sie den Newsletter empfangen?|0|
 email|email|E-Mail
-action|yform_rapidmail|###LISTID###|email
+action|yform_rapidmail|###LIST_ID###|email|newsletter_optin
 ```
 
-## Beispiel für eigene Nutzung / Ausgabe / etc.
+## Beispiel für eigene Nutzung / Ausgabe / etc
 
 ```php
 
