@@ -15,9 +15,13 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
 
         $list_id = $this->getElement(2);
         $email = &$this->params['value_pool']['sql'][$this->getElement(3)] ?? null; // email field
-        $fullname = &$this->params['value_pool']['sql'][$this->getElement(4)] ?? ""; // opt: fullname field
+        $optin = true;
+        if($this->getElement(4)) {
+            $optin = (bool) $this->params['value_pool']['sql'][$this->getElement(4)]; // opt: DSGVO optin field
+        }
+        $fullname = &$this->params['value_pool']['sql'][$this->getElement(5)] ?? ""; // opt: fullname field
 
-        if($list_id && $email) {
+        if($list_id && $optin && $email && 0 == count($this->params['warning_messages'])) {
             
             $recipientService = $client->recipients();
 
@@ -33,7 +37,7 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
 
             try {
 
-                $recipient = $recipientService->create($payload, $modifier);
+                $recipientService->create($payload, $modifier);
 
             } catch (ApiClientException $e) {
                 if ($e->getCode() == 401) {
@@ -49,6 +53,6 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
 
     public function getDescription(): string
     {
-        return 'action|yform_rapidmail|list_id|fieldname(email)|opt:fieldname_fullname(fullname)';
+        return 'action|yform_rapidmail|list_id|email_fieldname(e.g. email)|opt:optin_fieldname(e.g. newsletter)|opt:fieldname_fullname(fullname)';
     }
 }
