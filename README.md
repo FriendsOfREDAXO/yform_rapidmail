@@ -21,7 +21,6 @@ Optional:
 * `newsletter_optin` als Checkbox, um Opt-In DSGVO-konform abzufragen.
 
 ```plaintext
-objparams|csrf_protection|false
 checkbox|newsletter_optin|Möchten Sie den Newsletter empfangen?|0|
 email|email|E-Mail
 action|yform_rapidmail|###LIST_ID###|email|newsletter_optin
