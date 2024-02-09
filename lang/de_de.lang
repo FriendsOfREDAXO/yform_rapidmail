@@ -1,1 +1,10 @@
 yform_rapidmail_config = Einstellungen
+
+yform_rapidmail_api_user = API-Benutzer
+yform_rapidmail_hash = Passwort-Hash
+
+yform_rapidmail_list = Empfängerliste(n)
+yform_rapidmail_list_link = Link zur Liste
+
+yform_rapidmail_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+yform_rapidmail_donate = Weiterentwicklung unterstützen 

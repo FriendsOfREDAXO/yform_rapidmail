@@ -12,11 +12,11 @@ $addon = rex_addon::get('yform_rapidmail');
 $form = rex_config_form::factory($addon->getName());
 
 $field = $form->addTextField('api_user_hash');
-$field->setLabel('API-Benutzer');
+$field->setLabel(rex_i18n::msg('yform_rapidmail_api_user'));
 $field->setNotice('<a href="https://my.rapidmail.de/api/v3/userlist.html" target="_blank">hier erstellen</a>');
 
 $field = $form->addTextField('api_password_hash');
-$field->setLabel('Passwort-Hash');
+$field->setLabel(rex_i18n::msg('yform_rapidmail_hash'));
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
@@ -32,14 +32,14 @@ $listService = $client->recipientlists();
 $listFragment = new rex_fragment();
 $content = '';
 
-$table = '<p>' . $this->i18n('yform_rapidmail_info_list') . '</p>	';
+$table = '<p>' . $this->i18n('yform_rapidmail_list') . '</p>	';
 
 try {
     foreach ($listService->query() as $list) {
         $content .= '<tr>';
         $content .= '<td>' . $list['id'] . '</td>';
-        $content .= '<td><strong>' . $list['name'] . '</strong><br>'. $list['description'] .'</td>';
-        $content .= '<td><a href="'.$list['subscribe_form_url'].'" target="_blank">Link</a></td>';
+        $content .= '<td><strong>' . $list['name'] . '</strong><br>' . $list['description'] . '</td>';
+        $content .= '<td><a href="' . $list['subscribe_form_url'] . '" target="_blank">'.rex_i18n::msg('yform_rapidmail_list_link').'</a></td>';
         $content .= '</tr>';
     }
 
@@ -48,7 +48,7 @@ try {
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Formular</th>
+					<th>'.rex_i18n::msg('yform_rapidmail_list_link').'</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -59,7 +59,7 @@ try {
     $table = '<p>' . $this->i18n('yform_rapidmail_info_list_error') . '</p>';
 }
 $listFragment->setVar('class', 'info', false);
-$listFragment->setVar('title', $this->i18n('yform_rapidmail_donate'), false);
+$listFragment->setVar('title', $this->i18n('yform_rapidmail_list'), false);
 
 $listFragment->setVar('content', $table, false);
 ?>
@@ -70,15 +70,15 @@ $listFragment->setVar('content', $table, false);
 		<?= $listFragment->parse('core/page/section.php') ?>
 	</div>
 	<div class="col-lg-4">
-		<?php
+	<?php
 
-$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=yform_rapidmail"><img src="' . rex_url::addonAssets('yform_rapidmail', 'jetzt-spenden.svg') . '" style="width: 100% max-width: 400px;"></a>';
+$anchor = '<a target="_blank" href="https://donate.alexplus.de/?addon=yform_rapidmail"><img src="'.rex_url::addonAssets('events', 'jetzt-beauftragen.svg').'" style="width: 100% max-width: 400px;"></a>';
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'info', false);
 $fragment->setVar('title', $this->i18n('yform_rapidmail_donate'), false);
 $fragment->setVar('body', '<p>' . $this->i18n('yform_rapidmail_info_donate') . '</p>' . $anchor, false);
-echo !rex_config::get('alexplusde', 'donated') ? $fragment->parse('core/page/section.php') : '';
+echo !rex_config::get("alexplusde", "donated") ? $fragment->parse('core/page/section.php') : "";
 ?>
 	</div>
 </div>
