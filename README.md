@@ -1,6 +1,6 @@
-# YForm Rapidmail
+# YForm Rapidmail für REDAXO 5
 
-Work in Progress. Stellt den Rapidmail PHP-SDK zur Verfügung. Und synchronisiert Email-Adressen mit Empfängerlisten.
+Stellt den Rapidmail PHP-SDK zur Verfügung. Und synchronisiert Email-Adressen mit Empfängerlisten. REDAXO-Add-on für die Newsletter-Software rapidmail, kein offizielles rapidmail-Add-on.
 
 ## Einrichtung
 
@@ -95,3 +95,22 @@ $response = $recipientsService->import($import, $config);
 dump($response);
 
 ```
+
+
+## Lizenz
+
+Add-on: MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/dummy/blob/master/LICENSE.md)  
+Bitte Lizenzbedingungen des Drittanbieters (Rapidmail PHP-SDK) beachten!
+
+## Autoren
+
+**Alexander Walther**  
+http://www.alexplus.de  
+https://github.com/alexplusde  
+
+**Projekt-Lead**  
+[Alexander Walther](https://github.com/alexplusde)
+
+## Credits
+
+[rapidmail APIv3 client](https://github.com/rapidmail/rapidmail-apiv3-client-php)
