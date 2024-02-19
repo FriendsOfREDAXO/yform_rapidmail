@@ -195,7 +195,6 @@ class MailingService extends AbstractService
                 [
                     RequestOptions::JSON => $data->toArray()
                 ]
-
             );
 
         return $this->responseFactory->newHalResponse($this->client, $response);

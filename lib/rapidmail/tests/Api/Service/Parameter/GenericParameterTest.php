@@ -101,7 +101,8 @@ class GenericParameterTest extends TestCase
         (new GenericParameterMock())->stringifyDateTime(false);
     }
 
-    public function testKnownAttributeSetter() {
+    public function testKnownAttributeSetter()
+    {
 
         $mock = new GenericParameterMock();
 

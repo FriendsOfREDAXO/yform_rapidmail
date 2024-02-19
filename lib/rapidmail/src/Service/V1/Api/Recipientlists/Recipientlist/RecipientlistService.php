@@ -179,7 +179,6 @@ class RecipientlistService extends AbstractService
                         'query' => $filter->toArray()
                     ]
                 )
-
             );
 
     }
@@ -222,7 +221,6 @@ class RecipientlistService extends AbstractService
             [
                 RequestOptions::JSON => $data->toArray()
             ]
-
         );
 
         return $this->responseFactory->newHalResponse($this->client, $response);

@@ -9,7 +9,8 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 class FileAttrTest extends TestCase
 {
 
-    public function testFailsIfContentEmpfy() {
+    public function testFailsIfContentEmpfy()
+    {
         $attr = new FileAttr();
         $this->expectException(InvalidArgumentException::class);
         $attr->setContent('');
@@ -20,7 +21,8 @@ class FileAttrTest extends TestCase
      * @param string $content
      * @doesNotPerformAssertions
      */
-    public function testValidateBase64Content($content) {
+    public function testValidateBase64Content($content)
+    {
         $attr = new FileAttr();
         $attr->setContent($content);
     }
@@ -47,7 +49,8 @@ class FileAttrTest extends TestCase
      * @dataProvider invalidBase64Provider
      * @param string $content
      */
-    public function testThrowsOnInvalidBase64($content) {
+    public function testThrowsOnInvalidBase64($content)
+    {
         $attr = new FileAttr();
         $this->expectException(InvalidArgumentException::class);
         $attr->setContent($content);

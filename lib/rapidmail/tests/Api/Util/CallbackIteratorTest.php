@@ -7,13 +7,14 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class CallbackIteratorTest extends TestCase
 {
-    public function test() {
+    public function test()
+    {
         $array = [1, 2];
         $calls = 0;
 
         $iterator = new CallbackIterator(
             new \ArrayIterator($array),
-            function() use (&$calls) {
+            function () use (&$calls) {
                 $calls++;
             }
         );

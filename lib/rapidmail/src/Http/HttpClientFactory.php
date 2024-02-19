@@ -23,7 +23,8 @@ class HttpClientFactory
             ThrottleMiddleware::getInstance(
                 $config['throttle_interval'],
                 $config['throttle_requests_per_interval']
-            ), 'throttle'
+            ),
+            'throttle'
         );
 
         $clientConfig = array_replace_recursive(

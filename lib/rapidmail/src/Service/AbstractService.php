@@ -28,7 +28,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return string
      */
-    protected abstract function getResourcePath();
+    abstract protected function getResourcePath();
 
     /**
      * Constructor

@@ -127,7 +127,6 @@ class BlacklistService extends AbstractService
                 [
                     RequestOptions::JSON => $data->toArray()
                 ]
-
             );
 
         return $this->responseFactory->newHalResponse($this->client, $response);
@@ -204,7 +203,6 @@ class BlacklistService extends AbstractService
                 [
                     RequestOptions::JSON => $data->toArray()
                 ]
-
             );
 
         return $this->responseFactory->newHalResponse($this->client, $response);

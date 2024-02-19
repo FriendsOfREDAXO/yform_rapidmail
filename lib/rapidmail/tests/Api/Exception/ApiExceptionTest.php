@@ -11,7 +11,8 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 class ApiExceptionTest extends TestCase
 {
 
-    public function testApiExceptionFromGuzzleException() {
+    public function testApiExceptionFromGuzzleException()
+    {
 
         $exception = ClientException::create(
             new Request('GET', 'https://example.net'),

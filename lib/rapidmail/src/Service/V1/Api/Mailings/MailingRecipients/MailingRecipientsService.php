@@ -36,7 +36,6 @@ class MailingRecipientsService extends AbstractService
             $this->client->request(
                 'GET',
                 "{$this->getResourcePath()}/{$mailingId}/stats/activity/{$mailingRecipientId}"
-
             );
 
         return $this->responseFactory->newHalResponse($this->client, $response);
@@ -57,7 +56,6 @@ class MailingRecipientsService extends AbstractService
             $this->client->request(
                 'GET',
                 "{$this->getResourcePath()}/{$mailingId}/stats/activity"
-
             );
 
         return $this
