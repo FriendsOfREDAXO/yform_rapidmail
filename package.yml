@@ -3,6 +3,9 @@ version: 0.1.3
 author: alex+ Digitales Marketing
 supportpage: https://github.com/alexplusde/yform_rapidmail/
 
+requires:
+    redaxo: '^5.15'
+    ycom: '^4.2.1'
 
 default_config:
     api_user_hash: ''
