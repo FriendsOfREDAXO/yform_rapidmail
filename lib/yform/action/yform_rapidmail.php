@@ -7,7 +7,6 @@ use rex_config;
 
 class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
 {
-
     public function executeAction(): void
     {
 
@@ -22,7 +21,7 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
         $fullname = &$this->params['value_pool']['sql'][$this->getElement(5)] ?? ""; // opt: fullname field
 
         if($list_id && $optin && $email && 0 == count($this->params['warning_messages'])) {
-            
+
             $recipientService = $client->recipients();
 
             $payload = [
@@ -42,6 +41,9 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
             } catch (ApiClientException $e) {
                 if ($e->getCode() == 401) {
                     dump('Unauthorized access. Check if username and password are correct');
+                }
+                if ($e->getCode() == 409) {
+                    dump('E-Mail already exists in the list');
                 }
 
                 dump('An API exception occurred: ' . $e->getMessage());
