@@ -25,6 +25,11 @@ checkbox|newsletter_optin|Möchten Sie den Newsletter empfangen?|0|
 email|email|E-Mail
 action|yform_rapidmail|###LIST_ID###|email|newsletter_optin
 ```
+Vollständige Definition:
+
+```
+action|yform_rapidmail|list_id|email_fieldname(e.g. email)|opt:optin_fieldname(e.g. newsletter)|opt:fieldname_fullname(fullname)
+```
 
 ## Beispiel für eigene Nutzung / Ausgabe / etc
 
