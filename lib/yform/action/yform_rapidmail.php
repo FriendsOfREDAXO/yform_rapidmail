@@ -7,7 +7,6 @@ use rex_config;
 
 class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
 {
-
     public function executeAction(): void
     {
 
@@ -22,7 +21,7 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
         $fullname = &$this->params['value_pool']['sql'][$this->getElement(5)] ?? ""; // opt: fullname field
 
         if($list_id && $optin && $email && 0 == count($this->params['warning_messages'])) {
-            
+
             $recipientService = $client->recipients();
 
             $payload = [
@@ -40,8 +39,26 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
                 $recipientService->create($payload, $modifier);
 
             } catch (ApiClientException $e) {
+                if ($e->getCode() == 400) {
+                    dump('Client error. Check if the data is correct.');
+                }
                 if ($e->getCode() == 401) {
-                    dump('Unauthorized access. Check if username and password are correct');
+                    dump('Unauthorized access. Check if username and password are correct.');
+                }
+                if ($e->getCode() == 403) {
+                    dump('Forbidden access. Check if the user has the necessary rights.');
+                }
+                if ($e->getCode() == 406) {
+                    dump('Not acceptable. Check if the data is correct.');
+                }
+                if ($e->getCode() == 409) {
+                    dump('E-Mail already exists in the list.');
+                }
+                if ($e->getCode() == 415) {
+                    dump('Unsupported Media Type.');
+                }
+                if ($e->getCode() == 422) {
+                    dump('Validation failure. Check if the data is correct.');
                 }
 
                 dump('An API exception occurred: ' . $e->getMessage());
