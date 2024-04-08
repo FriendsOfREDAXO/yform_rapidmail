@@ -13,12 +13,12 @@ class rex_yform_action_yform_rapidmail extends rex_yform_action_abstract
         $client = new Client(rex_config::get('yform_rapidmail', 'api_user_hash'), rex_config::get('yform_rapidmail', 'api_password_hash'));
 
         $list_id = $this->getElement(2);
-        $email = &$this->params['value_pool']['sql'][$this->getElement(3)] ?? null; // email field
+        $email = $this->params['value_pool']['sql'][$this->getElement(3)] ?? null; // email field
         $optin = true;
         if($this->getElement(4)) {
             $optin = (bool) $this->params['value_pool']['sql'][$this->getElement(4)]; // opt: DSGVO optin field
         }
-        $fullname = &$this->params['value_pool']['sql'][$this->getElement(5)] ?? ""; // opt: fullname field
+        $fullname = $this->params['value_pool']['sql'][$this->getElement(5)] ?? ""; // opt: fullname field
 
         if($list_id && $optin && $email && 0 == count($this->params['warning_messages'])) {
 
