@@ -20,10 +20,20 @@ Optional:
 
 * `newsletter_optin` als Checkbox, um Opt-In DSGVO-konform abzufragen.
 
+Pipe-Schreibweise
+
 ```plaintext
 checkbox|newsletter_optin|Möchten Sie den Newsletter empfangen?|0|
-email|email|E-Mail
+email|email|E-Mail-Adresse
 action|yform_rapidmail|###LIST_ID###|email|newsletter_optin
+```
+
+PHP-Schreibweise
+
+```php
+$yform->setValueField('checkbox', ['newsletter_optin','Möchten Sie den Newsletter empfangen?','0','0']);
+$yform->setValueField('text', ['email','E-Mail-Adresse','','0','{"type":"email"}','']);
+$yform->setActionField('yform_rapidmail', ['###LIST_ID###', 'email', 'newsletter_optin']);
 ```
 Vollständige Definition:
 
@@ -100,7 +110,6 @@ $response = $recipientsService->import($import, $config);
 dump($response);
 
 ```
-
 
 ## Lizenz
 
