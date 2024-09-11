@@ -124,7 +124,9 @@ More information about using the API client can be found in the following subsec
 
 ## Known issues
 
-* Exceptions on 201 HTTP-Response-Code (used when a dataset was successfully created) are generated when using PHP Versions 7.4.5 and 8.1.2. If you're having issues with these versions, please try updating to a later version of PHP.
+1. Exceptions on 201 HTTP-Response-Code (used when a dataset was successfully created) are generated when using PHP Versions 7.4.5 and 8.1.2. If you're having issues with these versions, please try updating to a later version of PHP.
+2. Client versions <1.1.6 do not work with guzzlehttp/guzzle 7.8+. Please upgrade to version 1.1.6 or later or downgrade
+your version of guzzlehttp/guzzle to 7.7.
 
 Also refer to the [API documentation](https://developer.rapidmail.wiki/documentation.html) for a complete list of the available endpoints and their parameters.
 

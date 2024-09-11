@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.6
+- Fix issue with API version number from config being passed to Guzzle client instance
+See [#20](https://github.com/rapidmail/rapidmail-apiv3-client-php/issues/20) for details. Thanks to 
+[schelmo](https://github.com/schelmo) for the current workaround.
+
+## 1.1.5
+- [#19](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/19) allow psr/http-message 2.0
+(Thganks to [saitho](https://github.com/saitho))
+
 ## 1.1.4
 - Fixed deprecation warnings caused by use of deprecated variable replacement notation. 
 
