@@ -1,7 +1,7 @@
 package: yform_rapidmail
-version: 1.0.3
-author: "FriendsOfREDAXO, alex+ Digitales Marketing"
-supportpage: https://github.com/alexplusde/yform_rapidmail/
+version: 1.0.4
+author: "FriendsOfREDAXO"
+supportpage: https://github.com/FriendsOfREDAXO/yform_rapidmail/
 
 requires:
     redaxo: '^5.15'
