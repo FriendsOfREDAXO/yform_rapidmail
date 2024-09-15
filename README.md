@@ -113,18 +113,18 @@ dump($response);
 
 ## Lizenz
 
-Add-on: MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/dummy/blob/master/LICENSE.md)  
+[MIT Lizenz](LICENSE)
 Bitte Lizenzbedingungen des Drittanbieters (Rapidmail PHP-SDK) beachten!
 
-## Autoren
+## Autor
 
-**Alexander Walther**  
-http://www.alexplus.de  
-https://github.com/alexplusde  
+**Friends Of REDAXO**
+http://www.redaxo.org
+https://github.com/FriendsOfREDAXO
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)
 
 ## Credits
-
+[@alexplusde](https://github.com/sponsors/alexplusde) (Initiator)
 [rapidmail APIv3 client](https://github.com/rapidmail/rapidmail-apiv3-client-php)
