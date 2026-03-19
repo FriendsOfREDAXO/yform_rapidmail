@@ -118,13 +118,9 @@ Bitte Lizenzbedingungen des Drittanbieters (Rapidmail PHP-SDK) beachten!
 
 ## Autor
 
-**Friends Of REDAXO**
-http://www.redaxo.org
-https://github.com/FriendsOfREDAXO
+[Friends Of REDAXO](https://github.com/FriendsOfREDAXO)
 
-**Projekt-Lead**  
-[Alexander Walther](https://github.com/alexplusde)
 
 ## Credits
-[@alexplusde](https://github.com/sponsors/alexplusde) (Initiator)
+Alexander Walther (Initiator)  
 [rapidmail APIv3 client](https://github.com/rapidmail/rapidmail-apiv3-client-php)
